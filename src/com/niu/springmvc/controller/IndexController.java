@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,20 +28,31 @@ public class IndexController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/welcome")
-	public String welcome(@RequestParam(value="username",required=false) String username) {
+	public String welcome(
+			@RequestParam(value = "username", required = false) String username) {
 		logger.info("welcome," + username);
 		return "index";
 
 	}
-	//使用ModelAndView进行参数的传递
-	
+
+	// 使用ModelAndView进行参数的传递
+
 	@RequestMapping("index1")
-	public ModelAndView index(String username){
-		logger.info("welcome，"+username);
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("username",username);
+	public ModelAndView index(String username) {
+		logger.info("welcome，" + username);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("username", username);
 		mav.setViewName("index");
 		return mav;
 	}
 
+	// 使用Model进行参数的传递
+
+	@RequestMapping("index2")
+	public String index(String username, Model model) {
+		logger.info("welcome，" + username);
+		model.addAttribute("username", username);
+
+		return "index";
+	}
 }

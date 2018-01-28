@@ -1,5 +1,8 @@
-使用ModelAndView进行参数的传递
-ModelAndView mav=new ModelAndView();
-		mav.addObject("username",username);
-		mav.setViewName("index");
+使用Model进行参数的传递
+public String index(String username, Model model) {
+		logger.info("welcome，" + username);
+		model.addAttribute("username", username);
+
+		return "index";
+	}
 

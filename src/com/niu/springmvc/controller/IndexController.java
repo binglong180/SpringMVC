@@ -32,5 +32,15 @@ public class IndexController extends AbstractController {
 		return "index";
 
 	}
+	//使用ModelAndView进行参数的传递
+	
+	@RequestMapping("index1")
+	public ModelAndView index(String username){
+		logger.info("welcome，"+username);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("username",username);
+		mav.setViewName("index");
+		return mav;
+	}
 
 }

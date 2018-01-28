@@ -1,2 +1,5 @@
-使用RequestParamre(quired=false)进行参数的传递
-@RequestParam(value="username",required=false) String username
+使用ModelAndView进行参数的传递
+ModelAndView mav=new ModelAndView();
+		mav.addObject("username",username);
+		mav.setViewName("index");
+

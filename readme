@@ -1,3 +1,2 @@
-Spring MVC 配置
-使用SpringMVC @RequestParam进行参数的传递
-使用SpringMVC @RequestMapper进行不同请求的处理
+使用RequestMapping 进行参数的传递
+@RequestMapping(value = "/index", method = RequestMethod.GET, params = "username")

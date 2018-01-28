@@ -1,2 +1,2 @@
-使用RequestMapping 进行参数的传递
-@RequestMapping(value = "/index", method = RequestMethod.GET, params = "username")
+使用RequestParamre(quired=false)进行参数的传递
+@RequestParam(value="username",required=false) String username

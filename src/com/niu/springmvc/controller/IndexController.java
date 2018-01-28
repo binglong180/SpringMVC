@@ -26,7 +26,7 @@ public class IndexController extends AbstractController {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET, params = "username")
+	@RequestMapping(value = "/welcome")
 	public String welcome(@RequestParam(value="username",required=false) String username) {
 		logger.info("welcome," + username);
 		return "index";

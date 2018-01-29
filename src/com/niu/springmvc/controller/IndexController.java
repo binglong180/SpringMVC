@@ -1,5 +1,7 @@
 package com.niu.springmvc.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -64,17 +66,23 @@ public class IndexController extends AbstractController {
 		model.addAttribute(username);
 		return "index";
 	}
-	
+
 	// 使用Model进行对象参数的传递
-		@RequestMapping("index4")
-		public String index2(String username, Model model) {
-			logger.info("welcome，" + username);
-			model.addAttribute("username", username);
-			model.addAttribute(username);
-			User user =new User();
-			user.setUserName(username);
-			model.addAttribute("currentUser",user);
-			model.addAttribute(user);
-			return "index";
-		}
+	@RequestMapping("index4")
+	public String index2(String username, Model model) {
+		logger.info("welcome，" + username);
+		model.addAttribute("username", username);
+		model.addAttribute(username);
+		User user = new User();
+		user.setUserName(username);
+		model.addAttribute("currentUser", user);
+		model.addAttribute(user);
+		return "index";
+	}
+	@RequestMapping("index5")
+	public String index3(String username, Map<String,String> model) {
+		logger.info("welcome"+username);
+		model.put("username", username);
+		return "index";
+	}
 }

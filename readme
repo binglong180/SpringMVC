@@ -1,13 +1,8 @@
-使用Model进行对象参数的传递
-		@RequestMapping("index4")
-		public String index2(String username, Model model) {
-			logger.info("welcome，" + username);
-			model.addAttribute("username", username);
-			model.addAttribute(username);
-			User user =new User();
-			user.setUserName(username);
-			model.addAttribute("currentUser",user);
-			model.addAttribute(user);
-			return "index";
-		}
+使用Model(Map) 进行参数的传递
+		@RequestMapping("index5")
+	public String index3(String username, Map<String,String> model) {
+		logger.info("welcome"+username);
+		model.put("username", username);
+		return "index";
+	}
 

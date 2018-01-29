@@ -10,7 +10,6 @@ public class UserCotroller {
 	private Logger logger = Logger.getLogger(UserCotroller.class);
 	@RequestMapping("welcome")
 	public String welcome(@RequestParam String username) {
-
 		logger.info("welcome," + username);
 		return "index";
 

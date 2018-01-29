@@ -25,5 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    <h1>Hello MVC</h1>
    <h1>username===>${username }</h1>
+   <h1>String===>${string}</h1>
+   <h1>currentUser===>${currentUser.userName}</h1>
+   <h1>user===>${user.userName}</h1>
   </body>
 </html>

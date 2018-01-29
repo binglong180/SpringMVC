@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import com.niu.springmvc.pojo.User;
+
 @Controller
 public class IndexController extends AbstractController {
 
@@ -47,12 +49,32 @@ public class IndexController extends AbstractController {
 	}
 
 	// 使用Model进行参数的传递
-
 	@RequestMapping("index2")
 	public String index(String username, Model model) {
 		logger.info("welcome，" + username);
 		model.addAttribute("username", username);
-
 		return "index";
 	}
+
+	// 使用Model进行参数的传递
+	@RequestMapping("index3")
+	public String index1(String username, Model model) {
+		logger.info("welcome，" + username);
+		model.addAttribute("username", username);
+		model.addAttribute(username);
+		return "index";
+	}
+	
+	// 使用Model进行对象参数的传递
+		@RequestMapping("index4")
+		public String index2(String username, Model model) {
+			logger.info("welcome，" + username);
+			model.addAttribute("username", username);
+			model.addAttribute(username);
+			User user =new User();
+			user.setUserName(username);
+			model.addAttribute("currentUser",user);
+			model.addAttribute(user);
+			return "index";
+		}
 }
